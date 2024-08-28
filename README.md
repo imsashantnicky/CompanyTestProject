@@ -1,16 +1,31 @@
-# company_test_project
+Flutter Color Changing Application
 
-A new Flutter project.
+Overview
+This Flutter application demonstrates how to change the background color of a screen using a button when it’s clicked.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Key Elements:  Here is used a list of colors to define the colors. The initial color is set based on the first item in this list.
+List<Color> colors = [
+  Colors.orange,
+  Colors.green,
+  Colors.blue,
+  Colors.black,
+  Colors.pink,
+];  
+The currentColor variable holds the current background color, and colorIndex tracks the index of the current color in the colors list. late Color currentColor; 
+int colorIndex = 0;
+  This function is triggered when the button is pressed. It increments the colorIndex, and then updates currentColor to the new color. The setState method is used to update the UI with the new background color.
 
-A few resources to get you started if this is your first Flutter project:
+void changeScreenColor() {
+  setState(() {
+    colorIndex = (colorIndex + 1) % colors.length;
+    currentColor = colors[colorIndex];
+  });
+}   
+   
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
